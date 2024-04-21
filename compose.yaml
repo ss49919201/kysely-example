@@ -1,0 +1,16 @@
+volumes:
+  db:
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: kysely_example
+    command: mysqld
+    volumes:
+      - type: volume
+        source: db
+        target: /var/lib/mysql
+    ports:
+      - 127.0.0.1:3306:3306
